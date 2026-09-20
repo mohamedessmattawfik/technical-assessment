@@ -16,7 +16,7 @@ This document outlines key functional and domain ambiguities identified during d
 * **Ambiguity**: Should a `SETTLEMENT` event match the exact amount of its linked `AUTHORIZATION` hold, or can it settle for a partial or greater amount?
 * **Resolution**:
     * In card network processing, clearing amounts can differ from pre-authorization amounts (e.g., restaurant tips or fuel pumps).
-    * `SettlementEventHandler` releases the full active hold referenced by `referenceId` (releasing earmarked available balance) and posts the exact settlement amount to the ledger journal.
+    * `SettlementLedgerHandler` releases the full active hold referenced by `referenceId` (releasing earmarked available balance) and posts the exact settlement amount to the ledger journal.
 
 ---
 

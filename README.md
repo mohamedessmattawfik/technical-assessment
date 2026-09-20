@@ -9,7 +9,7 @@ A production-grade, append-only, event-sourced in-memory financial ledger implem
 * **CQRS Read-Write Segregation**: The domain layer splits state mutation (`LedgerAccount`) from inspection views (`ReadOnlyLedger`), ensuring that policies (like overdraft calculation and interest accrual) are pure, side-effect-free functions.
 * **Temporal Modeling (`LocalDate`)**: Uses `java.time.LocalDate` to handle chronological posting dates and retroactive value-date calculations (`value_date <= targetDate`).
 * **Strategy Pattern (Policies)**: Business rules are isolated into pluggable policies (`DailyOverDraftPolicy`, `FixedDailyInterestPolicy`) adhering to the Open/Closed Principle (OCP).
-* **Command Handler Pattern**: Events are routed through dedicated polymorphic handlers (`CreditEventHandler`, `DebitEventHandler`, `AuthorizationEventHandler`, `SettlementEventHandler`, `ReversalEventHandler`) to manage journal appends and hold lifecycles.
+* **Command Handler Pattern**: Events are routed through dedicated polymorphic handlers (`CreditLedgerHandler`, `DebitLedgerHandler`, `AuthorizationLedgerHandler`, `SettlementLedgerHandler`, `ReversalLedgerHandler`) to manage journal appends and hold lifecycles.
 * **Deterministic Precision**: Financial amounts are managed via `java.math.BigDecimal` with explicit currency scaling (`AED` scale 2, `BHD` scale 3) and `RoundingMode.HALF_UP`.
 
 ---

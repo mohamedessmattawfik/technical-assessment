@@ -25,10 +25,10 @@
 
 ### Phase 4: Command Handler Pattern Setup
 * Implemented polymorphic event handlers for journal postings:
-    * `CreditEventHandler` & `DebitEventHandler`: append settled ledger entries.
-    * `AuthorizationEventHandler`: creates active hold against available balance.
-    * `SettlementEventHandler`: releases hold by `referenceId` and appends settled debit entry.
-    * `ReversalEventHandler`: appends counter-balancing entry.
+    * `CreditLedgerHandler` & `DebitLedgerHandler`: append settled ledger entries.
+    * `AuthorizationLedgerHandler`: creates active hold against available balance.
+    * `SettlementLedgerHandler`: releases hold by `referenceId` and appends settled debit entry.
+    * `ReversalLedgerHandler`: appends counter-balancing entry.
 
 ---
 
